@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "npm test"
+    "test": "node_modules/livescript/bin/lsc test/run.ls"
   },
   "repository": {
     "type": "git",
