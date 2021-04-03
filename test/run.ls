@@ -4,4 +4,4 @@ require! {
 }
 
 
-console.log geojson.convert data
+geojson.convert data
