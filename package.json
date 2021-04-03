@@ -1,0 +1,32 @@
+{
+  "name": "geojson2czml",
+  "version": "1.0.0",
+  "description": "Convert GeoJSON to CZML",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "livescript": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/popkinj/geojson2czml.git"
+  },
+  "keywords": [
+    "GeoJSON",
+    "CZML",
+    "Cesium"
+  ],
+  "author": "Jamie Popkin (popkinj@littleearth.ca)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/popkinj/geojson2czml/issues"
+  },
+  "homepage": "https://github.com/popkinj/geojson2czml#readme"
+}
