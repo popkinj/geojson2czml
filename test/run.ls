@@ -1,3 +1,7 @@
-convert = require "#{__dirname}/../lib/index"
+require! {
+  "../lib/index": \geojson
+  "../../test-tracks.json": \data
+}
 
-console.log 'yo'
+
+console.log geojson.convert data
