@@ -8,4 +8,6 @@ param = \animal_status # The property of interest
 id = \critter_id # The unique id of the route
 
 
-geo2czml.convert data, date, id, param
+czml = geo2czml.convert data, date, id, param
+
+console.dir czml, depth: 5

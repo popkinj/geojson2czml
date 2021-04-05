@@ -1,7 +1,5 @@
 convert = (geojson, date, id, param) ->
-  # console.log JSON.stringify geojson,null,'  '
-#   console.log geojson
-  list = geojson?features.map( -> [
+  geojson?features.map( -> [
     it.properties?[id]
     it.properties?[date]
     it.geometry?coordinates.0
@@ -20,9 +18,6 @@ convert = (geojson, date, id, param) ->
         position: cartographicDegrees: [ b.1, b.2, b.3, b.4 ]
     a
   ,[])
-
-  console.dir list, depth:5
-
 
 module.exports = {
   convert
