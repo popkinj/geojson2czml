@@ -7,7 +7,7 @@ convert = (geojson) ->
     it.geometry?coordinates.0
     it.geometry?coordinates.1
     it.properties?animal_status
-  ]).filter( (.2 && .3) )
+  ]).filter( -> it.2 && it.3 )
   console.log list
 
 
