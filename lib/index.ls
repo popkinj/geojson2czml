@@ -1,4 +1,6 @@
-convert = (geojson, date, id, param) ->
+convert = (geojson, options) ->
+  {date,id,param} = options
+  # Pull required data from the geojson
   geojson?features.map( -> [
     it.properties?[id]
     it.properties?[date]
@@ -7,12 +9,12 @@ convert = (geojson, date, id, param) ->
     it.properties?[param]
   ]).filter( -> # Must have coordinates
     it.2 && it.3
-  ).reduce((a,b) ->
+  ).reduce((a,b) -> # Reduce points into their lines
     if (index = a.findIndex -> it.id === b.0) > -1
       # This id is present so push to location array
       a[index].position.cartographicDegrees.push b.1, b.2, b.3, b.4
     else
-      # This id is not present so create skeleton
+      # This id is not present so create first entry
       a.push do
         id: b.0
         position: cartographicDegrees: [ b.1, b.2, b.3, b.4 ]

@@ -3,11 +3,12 @@ require! {
   "../../points.json": \data # Test GeosJSON file
 }
 
-date = \date_recorded # The date property name
-param = \animal_status # The property of interest
-id = \critter_id # The unique id of the route
+options = do
+  date: \date_recorded # The date property name
+  param: \animal_status # The property of interest
+  id: \critter_id # The unique id of the route
 
 
-czml = geo2czml.convert data, date, id, param
+czml = geo2czml.convert data, options
 
 console.dir czml, depth: 5
