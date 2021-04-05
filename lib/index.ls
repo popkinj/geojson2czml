@@ -1,5 +1,5 @@
 convert = (geojson) ->
-  console.log JSON.stringify geojson,null,'  '
+  # console.log JSON.stringify geojson,null,'  '
 #   console.log geojson
   list = geojson?features.map( -> [
     it.properties.critter_id
@@ -7,7 +7,12 @@ convert = (geojson) ->
     it.geometry?coordinates.0
     it.geometry?coordinates.1
     it.properties?animal_status
-  ]).filter( -> it.2 && it.3 )
+  ]).filter( ->
+    it.2 && it.3
+  ).reduce((a,b) ->
+    a[b.0] = true; a
+  ,{})
+
   console.log list
 
 
