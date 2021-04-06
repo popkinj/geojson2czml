@@ -1,6 +1,7 @@
 require! {
   "../lib/index": \geo2czml
-  "./geo.json": \data # Test GeosJSON file
+  # "./geo.json": \data # Test GeoJSON file
+  "../../points.json": \data # My local GeoJSON file
 }
 
 options = do
