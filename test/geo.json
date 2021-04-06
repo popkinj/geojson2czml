@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [ 
+    {
+      "id": 1,
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.00,
+          43.00
+        ]
+      },
+      "properties": {
+        "sex": "Male", 
+        "wlh_id": "18-xxxxx",
+        "species": "Flimmer Flammer",
+        "location": null,
+        "animal_id": "CAR217",
+        "collar_id": "84cd57e9-a990-4e95-8971-dad0b5483126",
+        "device_id": 81228,
+        "frequency": 152.071,
+        "critter_id": "80fb06b4-707e-4fd6-a03a-a2b07cf035b8",
+        "animal_status": "Alive",
+        "date_recorded": "2021-03-27T00:01:10-07:00",
+        "device_status": "Mortality",
+        "device_vendor": "Lotek",
+        "population_unit": "Frisby-Boulder"
+      }
+    }
+  ]
+}
