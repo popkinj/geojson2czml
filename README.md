@@ -1,8 +1,8 @@
 # GeoJSON2CZML
-Convert [GeoJSON](https://geojson.org/) to [CZML](https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/CZML-Guide), Cesium Markup Language. This is the file format that [Cesium](https://cesium.com/platform/cesiumjs/) supports.
+Convert [GeoJSON](https://geojson.org/) to [CZML](https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/CZML-Guide), Cesium Markup Language. This is the file format that [Cesium](https://cesium.com/platform/cesiumjs/) uses.
 Only point feature types are currently supported.
 
-Configure how attributes are stored in the GeoJSON. Specify the names of the date, id & parameter fields. These would be stored in the parameters object of the GeoJSON. The date and ID are mandatory. The _param_ field is an optional field you would want to report in Cesium.
+Configure how attributes are stored in the GeoJSON. Specify the names of the date, id & parameter fields. These would be stored in the parameters object of the GeoJSON. The date and ID are mandatory. The _param_ field is optional and only used for reporting in Cesium.
 ```javascript
 const options = {
   date: "date_recorded",
