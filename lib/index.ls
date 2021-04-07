@@ -35,7 +35,7 @@ convert = (geojson, options) ->
   list.unshift do
     id: \document
     name: 'Critter Paths'
-    version: '1.0.0'
+    version: '1.0'
     clock:
       interval: "#{first.1}/#{last.1}"
       currentTime: "#{first.1}"
