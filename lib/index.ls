@@ -1,5 +1,5 @@
 convert = (geojson, options) ->
-  {date,id,param} = options
+  {date,id,elev} = options
 
   # Pull required data from the geojson
   sorted = geojson?features.map( -> [
@@ -7,7 +7,7 @@ convert = (geojson, options) ->
     it.properties?[date]
     it.geometry?coordinates.0
     it.geometry?coordinates.1
-    it.properties?[param]
+    it.properties?[elev] || 0
   ]).filter( -> # Must have coordinates
     it.2 && it.3
   ).sort((a,b) -> # Sort by date

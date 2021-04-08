@@ -6,8 +6,8 @@ require! {
 
 options = do
   date: \date_recorded # The date property name
-  param: \animal_status # The property of interest
   id: \critter_id # The unique id of the route
+  # elev: \animal_status # The property of interest
 
 
 czml = geo2czml.convert data, options
