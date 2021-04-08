@@ -7,9 +7,9 @@ require! {
 options = do
   date: \date_recorded # The date property name
   id: \critter_id # The unique id of the route
-  # elev: \animal_status # The property of interest
+  # elev: \elevation # Optional elevation
 
 
 czml = geo2czml.convert data, options
 
-console.dir czml, depth: 5
+console.dir czml, {depth: 5, maxArrayLength: null}

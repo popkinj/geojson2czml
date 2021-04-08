@@ -31,6 +31,25 @@ convert = (geojson, options) ->
     a
   ,[])
 
+  list.forEach ->
+    it.path = do
+      material:
+        polylineOutline:
+          color: rgba: [86,0,255,255]
+          outlineColor: rgba: [0,0,0,100]
+          outlineWidth: 5
+      width: 8
+      leadTime: 10
+      trailTime: 10000
+      resolution: 5
+
+    start = it.position.cartographicDegrees.0
+    end = it.position.cartographicDegrees[
+      it.position.cartographicDegrees.length - 4
+    ]
+
+    it.availability = "#start/#end"
+
   # Add the header
   list.unshift do
     id: \document
@@ -39,7 +58,7 @@ convert = (geojson, options) ->
     clock:
       interval: "#{first.1}/#{last.1}"
       currentTime: "#{first.1}"
-      multiplier: 10
+      multiplier: 10000
 
   list
 
