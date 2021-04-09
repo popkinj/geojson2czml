@@ -12,4 +12,4 @@ options = do
 
 czml = geo2czml.convert data, options
 
-console.dir czml, {depth: 5, maxArrayLength: null}
+console.dir czml, {depth: 6, maxArrayLength: null}
