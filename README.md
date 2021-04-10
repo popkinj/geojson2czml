@@ -2,12 +2,13 @@
 Convert [GeoJSON](https://geojson.org/) to [CZML](https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/CZML-Guide), Cesium Markup Language. This is the file format that [Cesium](https://cesium.com/platform/cesiumjs/) uses.
 Only point feature types are currently supported.
 
-Configure how attributes are stored in the GeoJSON. Specify the names of the date, id & elevation fields. These would be stored in the parameters object of the GeoJSON. The date and ID are mandatory. The _elev_ field is optional and defaults to 0.
+Configure how attributes are stored in the GeoJSON. Specify the names of the date, id, elevation & label fields. These would be stored in the parameters object of the GeoJSON. The date and ID are mandatory. The _elev_ and _label_ fields is optional and defaults to 0 & an empty string respectively.
 ```javascript
 const options = {
+  id: "animal_id",
   date: "date_recorded",
   elev: "elevation",
-  id: "animal_id"
+  label: "animal_id"
 }
 ```
 
@@ -49,7 +50,7 @@ const geojson =
   ]
 };
 
-const czml = geo2czml.convert(geojson, option);
+const czml = geo2czml.convert(geojson, options);
 ```
 
 Running the main test.

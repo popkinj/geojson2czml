@@ -1,5 +1,13 @@
 convert = (geojson, options) ->
-  {date,id,elev} = options
+  {date,id,elev,label} = options
+
+  # Store all labels for each feature
+  labels = geojson.features.reduce((a,b) ->
+    p = b.properties
+    a[p[id]] = p[label] || ''
+    a
+  ,{})
+
 
   # Pull required data from the geojson
   sorted = geojson?features.map( -> [
@@ -14,12 +22,17 @@ convert = (geojson, options) ->
     new Date(a.1) - new Date(b.1)
   )
 
-  # Before we separate records into their
-  # lines grab the first and last records
+  /*
+    Before we separate records into their
+    lines grab the first and last records
+  */
   first = sorted.0
   last = sorted[sorted.length - 1]
 
-  list = sorted.reduce((a,b) -> # Reduce points into their lines
+  /*
+    Reduce points into their lines
+  */
+  list = sorted.reduce((a,b) ->
     if (index = a.findIndex -> it.id === b.0) > -1
       # This id is present so push to location array
       a[index].position.cartographicDegrees.push b.1, b.2, b.3, b.4
@@ -31,8 +44,10 @@ convert = (geojson, options) ->
     a
   ,[])
 
+  /*
+    Add feature level CZML options
+  */
   list.forEach ->
-    console.log 'forEach',it
     it.path = do
       material:
         polylineOutline:
@@ -59,12 +74,14 @@ convert = (geojson, options) ->
     it.label = do
       style: 'fill'
       fillColor: rgba: [255,255,0,255]
-      text: 'Testing'
+      text: "#{labels[it.id]}"
       font: '18pt Arial bold'
       horizontalOrigin: 'left'
       pixelOffset: cartesian2: [0,-50]
 
-  # Add the header
+  /*
+    Add the header
+  */
   list.unshift do
     id: \document
     name: 'Critter Paths'
