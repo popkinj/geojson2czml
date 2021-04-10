@@ -53,6 +53,11 @@ const geojson =
 const czml = geo2czml.convert(geojson, options);
 ```
 
+Building
+```bash
+npm run build
+```
+
 Running the main test.
 ```bash
 npm test
